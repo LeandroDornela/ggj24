@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6804782593270402606}
+  - component: {fileID: 2833070407683068269}
   - component: {fileID: 3375643196053058260}
   m_Layer: 0
   m_Name: Trapdoor
@@ -31,9 +32,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6927242228556529304}
-  - {fileID: 7560100251775612021}
+  - {fileID: 8546683467217029004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2833070407683068269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438726252575043844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5ca6e18d615a8439b4716964507cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3375643196053058260}
+  _openTrigger: 
 --- !u!95 &3375643196053058260
 Animator:
   serializedVersion: 5
@@ -81,12 +96,12 @@ Transform:
   m_GameObject: {fileID: 3491374983070721682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9723, y: -2.3006, z: 0}
-  m_LocalScale: {x: 0.46192366, y: 0.10133938, z: 1}
+  m_LocalPosition: {x: 2.85, y: -2.44, z: 0}
+  m_LocalScale: {x: 0.33186945, y: 0.07280221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6804782593270402606}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.5}
 --- !u!212 &8986779578353120347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -139,7 +154,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7943935624883069629
+--- !u!1 &4267456193037639743
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +162,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7560100251775612021}
-  - component: {fileID: 3419148988803183290}
+  - component: {fileID: 8546683467217029004}
+  - component: {fileID: 3783284036656971582}
   m_Layer: 0
   m_Name: Sprite_LeftDoor
   m_TagString: Untagged
@@ -156,28 +171,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7560100251775612021
+--- !u!4 &8546683467217029004
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943935624883069629}
+  m_GameObject: {fileID: 4267456193037639743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.99, y: -2.3, z: 0}
-  m_LocalScale: {x: -0.5023168, y: 0.09768618, z: 1}
+  m_LocalPosition: {x: 6.2966, y: -2.44, z: 0}
+  m_LocalScale: {x: -0.33186945, y: 0.07280221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6804782593270402606}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3419148988803183290
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.2}
+--- !u!212 &3783284036656971582
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943935624883069629}
+  m_GameObject: {fileID: 4267456193037639743}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

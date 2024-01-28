@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -17,12 +18,20 @@ public class GMArena : MonoBehaviour
     [SerializeField, NaughtyAttributes.Scene] private string _mainMenuScene;
 
     [SerializeField] private TMP_Text _timerText;
-    [SerializeField] private TMP_Text _playerNameText;
+    [Space]
     [SerializeField] private GameObject _kingFirstDialogPanel;
+    [Space]
+    [SerializeField] private TMP_Text _playerNameText;
     [SerializeField] private GameObject _newPlayerPanel;
+    [Space]
     [SerializeField] private TMP_Text _gameOverPlayerNameText;
     [SerializeField] private GameObject _gameOverPanel;
-
+    [Space]
+    [SerializeField] private PlayableDirector _arenaDirector;
+    [SerializeField] private PlayableAsset _rightPlayerLooseSequence;
+    [SerializeField] private PlayableAsset _leftPlayerLooseSequence;
+    [SerializeField] private PlayableAsset _bothPlayersLooseSequence;
+    [Space]
     [SerializeField] private float _phaseDuration = 10; // if not using turns will be match time limit.
     [SerializeField] private bool _useTurns;
     [SerializeField] private int _maxTurns = 2;
@@ -42,9 +51,13 @@ public class GMArena : MonoBehaviour
 
     private void Awake()
     {
+        MessageReceiver.Instance.arenaGameManager = this;
+
         _newPlayerPanel.SetActive(false);
         _kingFirstDialogPanel.SetActive(false);
         _gameOverPanel.SetActive(false);
+
+        _arenaDirector.playableAsset = null;
     }
 
     // Start is called before the first frame update
@@ -71,7 +84,7 @@ public class GMArena : MonoBehaviour
                         }
                         else
                         {
-                            EnterGameOver(null);
+                            EnterGameOver(-1);
                         }
                     }
                     else
@@ -91,7 +104,7 @@ public class GMArena : MonoBehaviour
     {
         if(_currentTurn == _maxTurns)
         {
-            EnterGameOver(null);
+            EnterGameOver(-1);
         }
         else
         {
@@ -157,18 +170,29 @@ public class GMArena : MonoBehaviour
     }
 
     
-    void EnterGameOver(Player looser)
+    void EnterGameOver(int looserIndex)
     {
         _state = GameState.GameOver;
-        _gameOverPanel.SetActive(true);
 
-        if(looser == null)
+        if(looserIndex < 0)
         {
             _gameOverPlayerNameText.text = "Draw";
+
+            _arenaDirector.playableAsset = _bothPlayersLooseSequence;
+            _arenaDirector.Play();
         }
         else
         {
-            _gameOverPlayerNameText.text = $"Looser {looser.Name}";
+            if(looserIndex == 0)
+            {
+                _arenaDirector.playableAsset = _leftPlayerLooseSequence;
+            }
+            else
+            {
+                _arenaDirector.playableAsset = _rightPlayerLooseSequence;
+            }
+
+            _arenaDirector.Play();
         }
     }
     #endregion
@@ -216,11 +240,17 @@ public class GMArena : MonoBehaviour
     #endregion
 
 
+    public void ShowGameOverPanel()
+    {
+        _gameOverPanel.SetActive(true);
+    }
+
+
     public void PlayerSmiled(string value)
     {
         if(BattleRunning)
         {
-            EnterGameOver(_players[_currentPlayer]);
+            EnterGameOver(_currentPlayer);
         }
     }
 }
