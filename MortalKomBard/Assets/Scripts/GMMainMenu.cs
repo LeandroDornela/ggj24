@@ -25,4 +25,10 @@ public class GMMainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(_gameScene);
     }
+
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

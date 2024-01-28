@@ -27,6 +27,8 @@ public class GMArena : MonoBehaviour
     [SerializeField] private TMP_Text _gameOverPlayerNameText;
     [SerializeField] private GameObject _gameOverPanel;
     [Space]
+    [SerializeField] private CrowdManager _crowdManager;
+    [Space]
     [SerializeField] private PlayableDirector _arenaDirector;
     [SerializeField] private PlayableAsset _rightPlayerLooseSequence;
     [SerializeField] private PlayableAsset _leftPlayerLooseSequence;

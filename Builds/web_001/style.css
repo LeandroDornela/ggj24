@@ -1,0 +1,19 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    height: 280px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+canvas {
+    position: absolute;
+}
+
+.unity-window{
+    position: absolute;
+    z-index: -1;
+}
+
